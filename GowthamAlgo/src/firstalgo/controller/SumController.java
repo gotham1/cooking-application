@@ -3,7 +3,9 @@ package firstalgo.controller;
 import firstalgo.model.Generator;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 public class SumController implements Controller {
@@ -19,16 +21,27 @@ public class SumController implements Controller {
        return total;
     }
 
+    /**
+     * Split the original numbers and map spliiterNumber and orginal Number into the amp
+     * @param numbers
+     * @return splitterMap
+     */
     @Override
-    public List<Generator> split(String numbers) {
+    public Map<Integer,List<Generator>> split(String numbers) {
+
+        //to contain original numbers and split numbers
+        Map<Integer,List<Generator>> splitterMap = new HashMap<>();
 
         String[] numbersList = numbers.split("(?<=.)");
         ArrayList<Generator> generators = new ArrayList<>();
+        //getting split numbers
         for(String number: numbersList){
             Generator generator = new Generator(Integer.parseInt(number));
             generators.add(generator);
         }
-        return generators;
+
+        splitterMap.put(Integer.parseInt(numbers),generators);
+        return splitterMap;
     }
 
 }
