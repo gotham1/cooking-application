@@ -1,4 +1,4 @@
-package model;
+package firstalgo.model;
 
 
 public class Generator {

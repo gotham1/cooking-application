@@ -1,6 +1,6 @@
-package controller;
+package firstalgo.controller;
 
-import model.Generator;
+import firstalgo.model.Generator;
 
 import java.util.List;
 
@@ -10,4 +10,6 @@ import java.util.List;
 public interface Controller {
 
     int calculate(List<Generator> generatorList);
+
+    List<Generator> split(String numbers);
 }
